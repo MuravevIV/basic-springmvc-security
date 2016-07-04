@@ -12,7 +12,6 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        // Remove WebSecurityConfiguration from the list here to disable all security features.
         return new Class<?>[]{WebSecurityConfiguration.class};
     }
 
