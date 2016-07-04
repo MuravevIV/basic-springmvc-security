@@ -1,10 +1,8 @@
-package com.ilyamur.basic.springmvc.security.core.plugin;
+package com.ilyamur.basic.springmvc.security.web.plugin;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.multipart.support.MultipartFilter;
-
-import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.MultipartConfigElement;
@@ -12,10 +10,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * This functionality is unrelated to the spring-security.
- * This hack resolves Jetty + multipart/form-data form + CSRF issue.
+ * This hack resolves nasty Jetty + multipart/form-data form + CSRF issue.
  */
 public class JettyMultipartFormCsrfFixPlugin extends AbstractSecurityWebApplicationInitializer {
 

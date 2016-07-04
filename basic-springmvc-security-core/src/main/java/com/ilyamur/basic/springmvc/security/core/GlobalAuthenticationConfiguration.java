@@ -1,6 +1,5 @@
 package com.ilyamur.basic.springmvc.security.core;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
@@ -10,14 +9,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalAuthentication
 public class GlobalAuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
-        PasswordEncoder passwordEncoder = passwordEncoder();
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        //
+        // Better use auth.jdbcAuthentication() or something like it in production environment.
+        // Passwords are encrypted with BCryptPasswordEncoder and not stored in-memory as "admin" and "user".
+        // They are encoded here directly from string values for demo purposes only - and
+        // !!!
+        // you should never do this in real projects!
+        // !!!
+        //
         auth.inMemoryAuthentication()
                 .passwordEncoder(passwordEncoder)
                 .withUser("admin").password(passwordEncoder.encode("admin")).roles("SITE_ADMIN").and()

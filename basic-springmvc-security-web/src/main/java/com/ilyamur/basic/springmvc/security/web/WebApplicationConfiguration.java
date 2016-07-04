@@ -1,4 +1,4 @@
-package com.ilyamur.basic.springmvc.security.core;
+package com.ilyamur.basic.springmvc.security.web;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

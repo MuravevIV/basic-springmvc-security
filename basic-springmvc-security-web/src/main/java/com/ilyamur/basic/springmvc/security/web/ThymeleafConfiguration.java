@@ -1,4 +1,4 @@
-package com.ilyamur.basic.springmvc.security.core;
+package com.ilyamur.basic.springmvc.security.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +17,6 @@ public class ThymeleafConfiguration {
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
-        // cache should generally be enabled (especially on production)
-        // but we can live-edit pages, if it's disabled
         templateResolver.setCacheable(false);
         return templateResolver;
     }

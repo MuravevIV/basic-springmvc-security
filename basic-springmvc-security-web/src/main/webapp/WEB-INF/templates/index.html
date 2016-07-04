@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+<h2>Basic SpringMVC Security</h2>
+
+<h3 style="color: red;" th:text="'You are authenticated as  ' + ${userName}"></h3>
+
+<h3>Features</h3>
+<ol>
+    <li>login/password form authentication</li>
+    <li>remember-me (persistent-login) authentication</li>
+    <li>page authorization</li>
+    <li>password protection</li>
+    <li>CSRF protection</li>
+</ol>
+
+<h3>Demo</h3>
+<ol>
+    <li>
+        <a href="/login">Login</a> as user/user - you will be redirected back here.
+        You are now authenticated as user.
+    </li>
+    <li>
+        <a href="/logout">Logout</a> - you will be logged out and be suggested to sign in again.
+    </li>
+    <li>
+        <a href="/login">Login</a> as user/user and try to access
+        <a href="/admin_console">admin console</a> page - "Access is denied" (403) error.
+    </li>
+    <li>
+        <a href="/login">Login</a> as admin/admin, then try to access
+        <a href="/admin_console">admin console</a> page - access granted.
+    </li>
+    <li>
+        Close / open browser application, then try to access
+        <a href="/admin_console">admin console</a> - application doesn't remember you and suggests to sign in.
+    </li>
+    <li>
+        On the login page check "Remember me" checkbox, then <a href="/login">login</a> as admin/admin.
+        Close / open browser application, then try to access
+        <a href="/admin_console">admin console</a> - application remembers you.
+    </li>
+</ol>
+
+<h3>Read comments in basic-springmvc-security-core submodule classes</h3>
+
+</body>
+</html>

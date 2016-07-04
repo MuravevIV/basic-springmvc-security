@@ -1,5 +1,6 @@
-package com.ilyamur.basic.springmvc.security.core;
+package com.ilyamur.basic.springmvc.security.web;
 
+import com.ilyamur.basic.springmvc.security.core.WebSecurityConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -11,6 +12,7 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
+        // Remove WebSecurityConfiguration from the list here to disable all security features.
         return new Class<?>[]{WebSecurityConfiguration.class};
     }
 
